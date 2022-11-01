@@ -7,40 +7,32 @@
 - Import code from a package into a JavaScript file
 
 ## Introduction
-
-When using npm, it is often the case that we aren't familiar with _all_ of the
-code in the dependency tree. Building modern JavaScript applications relies on
-our ability to use the tools built for us by others. As it turns out, most of
-those tools are _also_ built using _other people's_ tools. One package may be
-used in another, which is used in another, and another, and so on...
-
-Using npm, we download specific packages of code. If those packages have
-dependencies, the dependencies are also downloaded in a recursive manner. For
-the purposes of our own application, however, **we only need to know about the
-node packages _we_ specifically need to get our app working**. We don't need to
-worry about what packages _those_ packages need. Why? Because every node package
-includes a `package.json` file that lists out all dependencies. This file lets
-Node know what to download when we run `npm install`. Node will download all the
-packages, check the `package.json` files present in each of those packages,
-download any additional packages, and repeat.
+A complication with modern app development, particularily JavaScript, is managing
+the complex, recursive dependency tree relating the packages. `npm`, the default
+package manager for JS, helps in two major ways:
+- install packages: **`npm install <self>`** => collects `"dependencies"` from
+(default) `./packages.json` directory and adopts a './nodes_modules' subdirectory
+to install packages necessary for **running the application or program**
+- create packages: **`npm init <self>`** => collects `"devDependencies"` from (default)
+`./packages.json` and `./package-lock.json` and installs packages necessary for
+**developing the application or program**
+_Along with the specified dependencies, installs and manages necessary dependencies of_
+_the packages_
+### 
 
 We will see in future labs that as the number of packages increases, more and
 more happens when we run `npm install`. All _we_ need to worry about, though, is
 the top level — what is listed in _our_ application's `package.json` file.
 
-In this code-along, we are going to practice the process of setting up a
-`package.json` file. We will also install an npm package or two and use their
-functionality in new code we write.
+This code-along demonstrates the process of setting up a `package.json` file to
+install and utilize npm packages in our code. 
 
 ## Getting Started
+Need to specify a project name to store all files. Dependecies will be defined in
+the `package.json` or `package_lock.json` file in the project directory (if neither
+files are present, npm will make one). A child `project>node_modules` will store the
+packages necessary to **run** the application (`--save-dev`-> also installs `devDependencies`)
 
-Before we can create a `package.json` file, we'll need a project and a project
-folder to contain all the files. For this code-along, we'll be building out a
-clock application that changes color every second.
-
-In this lesson, a sub-folder has been created for us to use, `color-clock`, that
-contains some basic starter files for a project. If you look at
-`color-clock/index.html`, you'll see a script tag:
 
 ```html
 <script src="index.js" type="module"></script>

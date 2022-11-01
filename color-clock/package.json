@@ -1,0 +1,11 @@
+{
+  "name": "color-clock",
+  "version": "1.0.0",
+  "description": "First lab of phase-2, go over how npm **installs** and **creates** packages necessary to run the application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
