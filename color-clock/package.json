@@ -4,7 +4,7 @@
   "description": "First lab of phase-2, go over how npm **installs** and **creates** packages necessary to run the application",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'Hello World!`",
+    "test": "echo 'Hello World!'",
     "start": "serve"
   },
   "author": "",
